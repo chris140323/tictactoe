@@ -1,0 +1,74 @@
+:root {
+    --boardHeight: 600px;
+  }
+
+.board {
+  height: var(--boardHeight);
+  width: var(--boardHeight);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #555;
+}
+
+.squares {
+  float: left;
+  height: calc((var(--boardHeight) - 8px) / 3);
+  width: calc((var(--boardHeight) - 8px) /3);
+  background-color: #bdbdbd;
+}
+
+/* Squares */
+
+#top-left {
+  background-color: #ad1b1b;
+  border-right: 4px solid blue;
+  border-bottom: 4px solid blue;
+}
+
+#top-middle {
+  background-color: #ad1b1b;
+  border-bottom: 4px solid blue;
+  border-right: 4px solid blue;
+}
+
+#top-right {
+  background-color: #ad1b1b;
+  border-bottom: 4px solid blue;
+}
+
+#middle-left {
+  background-color: #1b8bad;
+  border-right: 4px solid blue;
+  border-bottom: 4px solid blue;
+}
+
+#middle-middle {
+  background-color: #1b8bad;
+  border-bottom: 4px solid blue;
+  border-right: 4px solid blue;
+}
+
+#middle-right {
+  background-color: #1b8bad;
+  border-bottom: 4px solid blue;
+}
+
+#bottom-left {
+  background-color: #1bad3b;
+  border-right: 4px solid blue;
+}
+
+#bottom-middle {
+  background-color: #1bad3b;
+  border-right: 4px solid blue;
+}
+
+#bottom-right {
+  background-color: #1bad3b;
+}
+
+/* Squares */

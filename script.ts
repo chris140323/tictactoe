@@ -1,0 +1,4 @@
+function selected(): void {
+}
+
+selected();
