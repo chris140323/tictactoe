@@ -1,4 +1,0 @@
-function selected(): void {
-}
-
-selected();
