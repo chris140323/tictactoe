@@ -1,6 +1,6 @@
 :root {
-    --boardHeight: 600px;
-  }
+  --boardHeight: 600px;
+}
 
 .board {
   height: var(--boardHeight);
@@ -17,7 +17,7 @@
 .squares {
   float: left;
   height: calc((var(--boardHeight) - 8px) / 3);
-  width: calc((var(--boardHeight) - 8px) /3);
+  width: calc((var(--boardHeight) - 8px) / 3);
   background-color: #bdbdbd;
 }
 
@@ -72,3 +72,13 @@
 }
 
 /* Squares */
+
+.tile {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 40px;
+  border: solid rgb(255, 255, 255);
+}
