@@ -1,19 +1,36 @@
-let gameHasEnded = false;
-let clicks = 0;
-let player = 1;
-let draw = false;
-let click = {
-    "top-left": [0, 0],
-    "top-middle": [0, 0],
-    "top-right": [0, 0],
-    "middle-left": [0, 0],
-    "middle-middle": [0, 0],
-    "middle-right": [0, 0],
-    "bottom-left": [0, 0],
-    "bottom-middle": [0, 0],
-    "bottom-right": [0, 0],
+let gameHasEnded;
+let clicks;
+let player;
+let draw;
+let click;
+
+function restart() {
+    let list = document.getElementsByClassName("squares");
+    for (let i = 0; i < list.length; i++) {
+        list[i].innerHTML = "";
+    }
+
+    document.getElementById("result").innerText = "";
+    document.getElementById("restart").innerHTML = "";
+
+    gameHasEnded = false;
+    clicks = 0;
+    player = 1;
+    draw = false;
+    click = {
+        "top-left": [0, 0],
+        "top-middle": [0, 0],
+        "top-right": [0, 0],
+        "middle-left": [0, 0],
+        "middle-middle": [0, 0],
+        "middle-right": [0, 0],
+        "bottom-left": [0, 0],
+        "bottom-middle": [0, 0],
+        "bottom-right": [0, 0],
+    }
 }
 
+restart();
 
 /* variable that states if game has ended or not (false at start)
     every time an x or o appears, we will call function that checks if its a winning move or not
@@ -48,13 +65,9 @@ function selected(ev) {
                 else {
                     document.getElementById("result").innerText = "Player " + click[wyw][1] + " won!";
                 }
+                document.getElementById("restart").innerHTML = "<button onclick='restart()'>Restart</button>";
             }
         }
-        else {
-            alert("Already Clicked");
-        }
-        console.log(wyw);
-        console.log(click[wyw][1]);
     }
 }
 
