@@ -4,6 +4,83 @@ let player;
 let draw;
 let click;
 
+// const x = new Set();
+// const o = new Set();
+// let winningLines = [
+//     ["top-left", "top-middle", "top-right"],
+//     ["middle-left", "middle-middle", "middle-right"],
+//     ["bottom-left", "bottom-middle", "bottom-right"],
+//     ["top-left", "middle-left", "bottom-left"],
+//     ["top-middle", "middle-middle", "bottom-middle"],
+//     ["top-right", "middle-right", "bottom-right"],
+//     ["top-left", "middle-middle", "bottom-right"],
+//     ["top-right", "middle-middle", "bottom-left"]
+// ];
+// let turn = 1;
+// let end;
+
+// function picked(ev) {
+//     ev.preventDefault();
+
+//     let hey = ev.target.id;
+//     if (end == null && hey != "tile" && !x.has(hey) && !o.has(hey)) {
+//         if (turn == 1) {
+//             x.add(hey), turn = -1;          // learned how to use JS question mark e.g. if X is true, then y, else z  (if set x has hey, then say duplicate, else add it to the set and change turn)
+//             document.getElementById(hey).innerHTML = "<div id='tile'>X</div>";
+//         }
+//         else {
+//             o.add(hey), turn = 1;           // if set o has hey, then say duplicate, else add it to the set and change turn
+//             document.getElementById(hey).innerHTML = "<div id='tile'>O</div>";
+//         }
+//         // turn == 1 ? console.log(o) : console.log(x);
+//         console.log("X: ", x, " and O: ", o);
+//         end = checkForWinner();
+//     }
+// }
+
+// function checkForWinner() {
+//     let count = 0;
+//     if (x.size > 2 || o.size > 2) {
+//         console.log("possible winner ", turn);
+//         if (turn == -1) {
+//             for (let i = 0; i < winningLines.length; i++) {
+//                 count = 0;
+//                 for (let j = 0; j < winningLines[i].length; j++) {
+//                     console.log(winningLines[i][j]);
+//                     if (x.has(winningLines[i][j])) {
+//                         count++;
+//                         if (count == 3) {
+//                             console.log("PLayer 1 wins");
+//                             return "Player 1";
+//                         }
+//                     }
+//                     else {
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//         else {
+//             for (let i = 0; i < winningLines.length; i++) {
+//                 count = 0;
+//                 for (let j = 0; j < winningLines[i].length; j++) {
+//                     console.log(winningLines[i][j]);
+//                     if (o.has(winningLines[i][j])) {
+//                         count++;
+//                         if (count == 3) {
+//                             console.log("PLayer 2 wins");
+//                             return "Player 2";
+//                         }
+//                     }
+//                     else {
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
 function restart() {
     let list = document.getElementsByClassName("squares");
     for (let i = 0; i < list.length; i++) {
@@ -28,6 +105,9 @@ function restart() {
         "bottom-middle": [0, 0],
         "bottom-right": [0, 0],
     }
+
+    // x.clear();
+    // o.clear();
 }
 
 restart();
@@ -43,17 +123,17 @@ function selected(ev) {
     ev.preventDefault();
 
     let wyw = ev.target.id;
-    if (!gameHasEnded) {
+    if (!gameHasEnded && wyw != "") {
         if (click[wyw][0] == 0) {
             clicks += 1;
             click[wyw][0] += 1;
             if (player == 1) {
-                document.getElementById(wyw).innerHTML = "<div class='tile'>X</div>";
+                document.getElementById(wyw).innerHTML = "<div class='tile-purple'>X</div>";
                 player = 2;
                 click[wyw][1] = 1;
             }
             else {
-                document.getElementById(wyw).innerHTML = "<div class='tile'>O</div>";
+                document.getElementById(wyw).innerHTML = "<div class='tile-mint'>O</div>";
                 player = 1;
                 click[wyw][1] = 2;
             }
